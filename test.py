@@ -8,3 +8,5 @@ pl.ylabel('Amplitude')
 pl.ylim([-1.5, 1.5])
 pl.show()
 
+print "Test GIT"
+
