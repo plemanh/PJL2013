@@ -1,3 +1,6 @@
+#Ce code récupère tous les titres des articles qui appartiennent à la catégorie Art_history parmi les 1 600 000 
+#référencés sur DBpedia
+
 import rdflib
 from rdflib import Graph
 
