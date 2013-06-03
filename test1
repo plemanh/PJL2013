@@ -9,17 +9,7 @@ import numpy as np
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
-cv=CountVectorizer()
-
-Z=[file('/Users/Louis/Desktop/PJL2013/donnee/testdonne.txt').read(),file('/Users/Louis/Desktop/PJL2013/donnee/testdonne1.txt').read()]
-
-X=cv.fit_transform(Z)
-
-
-tf=TfidfTransformer(use_idf=False).fit(X)
-
-Y=tf.transform(X)
-
+cv=CountVectorizer(min_df=0.0, analyzer='word', ngram_range=(3, 4))
 
 # Test countvectorizer sur plusieurs fichiers:
 fichiers=glob.glob('/Users/Louis/Desktop/PJL2013/donnee/*.txt')
@@ -31,7 +21,10 @@ for x in fichiers:
 	sumdata.append(file(x).read())
 pass
 
+X=cv.fit_transform(sumdata)
 
-X1=cv.fit_transform(sumdata)
 
-#X1=cv.fit_transform(sumdonne)
+#Utilisation de Tfidftransformer
+tf=TfidfTransformer(use_idf=False).fit(X)
+Y=tf.transform(X)
+
