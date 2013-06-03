@@ -3,18 +3,19 @@
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline, FeatureUnion
+from sklearn.pipeline import Pipeline 
+from sklearn.pipeline import FeatureUnion
 from sklearn.feature_selection import SelectPercentile, chi2
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cross_validation import cross_val_score
 
-# Ne pas considérer tous les mots mais que ceux qui apparaissent avec une fréquence faible
+# Ne pas considerer tous les mots mais que ceux qui apparaissent avec une frequence faible
 select = SelectPercentile(score_func=chi2, percentile=16)
 
-#choix du classifieur: régression logistique
+#choix du classifieur: regression logistique
 clf = LogisticRegression(tol=1e-8, penalty='l2', C=10., intercept_scaling=1e3)
 
-# Ne considère que les mots qui apparaissent avec la fréquence la plus faible
+# Ne considere que les mots qui apparaissent avec la frequence la plus faible
 countvect_char = TfidfVectorizer(ngram_range=(1, 5), analyzer="char", binary=False)
 countvect_word = TfidfVectorizer(ngram_range=(1, 3), analyzer="word", binary=False, min_df=3)
 
