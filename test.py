@@ -12,17 +12,17 @@ cv=CountVectorizer(min_df=0.0, analyzer='word', ngram_range=(3, 4))
 #tf=TfidfV
 #ectorizer()
 
-result=cv.fit_transform([file('/Users/Louis/Desktop/PJL2013/testdonne').read()])
+result=cv.fit_transform([file('/Users/Louis/Desktop/PJL2013/donnee/testdonne.txt').read()])
 
-sct = SelectPercentile(score=chi2, percentile=16)
+#sct = SelectPercentile(score=chi2, percentile=16)
 
-X=[]
+#X=[]
 
-result1=sct.transform(result)
+#result1=sct.transform(result)
 
-result.shape
+#result.shape
 
-print result
+#print result
 #print cv.vocabulary_
 
 # import glob
