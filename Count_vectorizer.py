@@ -9,6 +9,7 @@ import numpy as np
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
+# Creation de la liste des stop words
 fich = open('/Users/paullemanh/Documents/Telecom/M1/PJL/stop_words')
 y = []
 for line in fich:
