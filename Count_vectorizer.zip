@@ -9,10 +9,16 @@ import numpy as np
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
-cv=CountVectorizer(min_df=0.0, analyzer='word', ngram_range=(3, 4))
+fich = open('/Users/paullemanh/Documents/Telecom/M1/PJL/stop_words')
+y = []
+for line in fich:
+    y.append(line[0:-1])
+pass
+
+cv=CountVectorizer(min_df=0.0, analyzer='word', ngram_range=(1, 3), stop_words = y)
 
 # Test countvectorizer sur plusieurs fichiers:
-fichiers=glob.glob('/Users/Louis/Desktop/PJL2013/donnee/*.txt')
+fichiers=glob.glob('/Users/paullemanh/Documents/Telecom/M1/PJL/Art_history/*')
 sumdata=[]
 
 # pour mettre tous les textes dans un seul
